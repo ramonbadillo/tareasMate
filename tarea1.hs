@@ -58,22 +58,3 @@ main = print (equiv3
 		)
 	
 	
---main = print(valid15A test15A == valid15B test15B)
-
-
-
---PROBLEMA 17-------------------
-valid17A :: (Bool -> Bool -> Bool) -> Bool
-valid17A func = and [func a b | a <- [True,False] , b <- [True,False]  ]
-
-
-valid17B :: (Bool -> Bool -> Bool) -> Bool
-valid17B func = and [func a b | a <- [True,False] , b <- [True,False]  ]
---test17B p q = p => not q
-
-
-
-
-
-
---main = print(valid17B test17B == valid17A test17A)
