@@ -1,5 +1,3 @@
-#!/usr/bin/env runhaskell
-
 xor :: Bool -> Bool -> Bool
 xor x y | x == True && y == False = True
         | x == False && y == True = True
@@ -16,6 +14,12 @@ equiv2 ::  (Bool ->Bool -> Bool) -> (Bool->Bool->Bool) -> Bool
 equiv2 func1 func2 = and [ 
 		(func1 a b )==(func2 a b )  |  							
 		a <- [True,False], b <-[True,False]
+	]
+
+maximo :: Bool
+maximo = and [ 
+		max (max a b) c == max a (max b c) |  
+		a <- [True,False], b <-[True,False], c <-[True,False]
 	]
 
 main = print (equiv3 
@@ -53,8 +57,8 @@ main = print (equiv3
 		(\ a b -> (a <= b) && (b <= a)),
 		equiv2 --26
 		(\ p q -> p == q )
-		(\ a b -> (not a) == (not b))
-		
+		(\ a b -> (not a) == (not b)),	
+		maximo		
 		)
 	
 	
